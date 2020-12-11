@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
     public ThirdPersonCharacter character;
     public GameObject player;
+    public float chaseDistance = 8.0f;
 
     void Start()
     {
@@ -27,14 +28,21 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(player.transform.position);
+        MoveEnemy();
+    }
 
-        if (agent.remainingDistance > agent.stoppingDistance)
+    void MoveEnemy()
+    {
+        float distanceFromTarget = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distanceFromTarget > agent.stoppingDistance && distanceFromTarget < chaseDistance)
         {
+            agent.SetDestination(player.transform.position);
             character.Move(agent.desiredVelocity, false, false);
         }
         else
         {
+            agent.SetDestination(transform.position);
             character.Move(Vector3.zero, false, false);
         }
     }

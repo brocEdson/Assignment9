@@ -752,6 +752,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   character: {fileID: 0}
   player: {fileID: 0}
+  chaseDistance: 8
 --- !u!195 &1985434290
 NavMeshAgent:
   m_ObjectHideFlags: 0
