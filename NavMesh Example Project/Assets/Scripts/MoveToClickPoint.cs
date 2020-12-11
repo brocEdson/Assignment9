@@ -1,6 +1,6 @@
 ﻿/* Broc Edson
- * 
- * 
+ * Assignment 9
+ * Moves the player to a point that has been clicked
  */
 using System.Collections;
 using System.Collections.Generic;
